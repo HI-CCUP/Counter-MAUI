@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestMauiApp.Views.CounterView"
+             xmlns:models="clr-namespace:TestMauiApp.Models"
+             x:DataType="models:Counter">
+
+        <Frame CornerRadius="10"
+               Padding="15"
+               Margin="0,5"
+               BorderColor="Black"
+               HasShadow="True"
+               x:Name="CounterFrame">
+
+                <VerticalStackLayout Spacing="10">
+                        <Entry x:Name="NameEntry"
+                               Placeholder="Wpisz nazwę licznika..."
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               TextChanged="Entry_TextChanged"/>
+
+                        <HorizontalStackLayout Spacing="10"
+                                               HorizontalOptions="Center">
+                                <Label x:Name="CounterLabel"
+                                       Text="0"
+                                       FontSize="18"
+                                       VerticalOptions="Center"
+                                       Margin="0,0,10,0"/>
+
+                                <Button Clicked="Decrement_Clicked"
+                                                Text="{Binding DecrementButton}"
+                                                WidthRequest="45"/>
+                                <Button Clicked="Increment_Clicked"
+                                                Text="{Binding IncrementButton}"
+                                                WidthRequest="45"/>
+                                <Button Clicked="Delete_Clicked"
+                                                Text="{Binding DeleteButtonText}"
+                                                BackgroundColor="Red"
+                                                WidthRequest="45"/>
+                        </HorizontalStackLayout>
+
+                        <Slider x:Name="RedSlider"
+                                        Minimum="0"
+                                        Maximum="255"
+                                        Value="255"
+                                        ThumbColor="Red"
+                                        ValueChanged="Slider_ValueChanged"/>
+                        <Slider x:Name="GreenSlider"
+                                        Minimum="0"
+                                        Maximum="255"
+                                        Value="255"
+                                        ThumbColor="Green"
+                                        ValueChanged="Slider_ValueChanged"/>
+                        <Slider x:Name="BlueSlider"
+                                        Minimum="0"
+                                        Maximum="255"
+                                        Value="255"
+                                        ThumbColor="Blue"
+                                        ValueChanged="Slider_ValueChanged"/>
+
+                        <Button Text="Reset Counter"
+                                        Clicked="Reset_Clicked"/>
+                </VerticalStackLayout>
+        </Frame>
+</ContentView>

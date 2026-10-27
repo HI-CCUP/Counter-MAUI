@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestMauiApp.Views.AllCountersPage"
+             xmlns:models="clr-namespace:TestMauiApp.Models"
+             xmlns:views="clr-namespace:TestMauiApp.Views"
+             x:DataType="models:AllCounters"
+             Title="Your counters">
+    <Grid RowDefinitions="Auto, *">
+        <Grid ColumnDefinitions="Auto,*"
+                Grid.Row="0">
+            <Entry Placeholder="{Binding EntryPlaceholder}"
+                   Keyboard="Numeric"
+                   x:Name="DefaultValueEntry"
+                   Text="0"
+                   Grid.Column="0"
+                   FontSize="20"/>
+            <Button Grid.Column="1"
+                    Text="{Binding AddButtonText}"
+                    Clicked="AddCounter_Clicked"
+                    Margin="15"
+                    BackgroundColor="Green"
+                    TextColor="White"
+                    FontAttributes="Bold"/>
+        </Grid>
+
+        <ScrollView Grid.Row="1"
+                Padding="15">
+            <VerticalStackLayout x:Name="CountersStack"
+                    Spacing="10"/>
+        </ScrollView>
+    </Grid>
+</ContentPage>
